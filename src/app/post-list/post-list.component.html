@@ -1,0 +1,14 @@
+<div class="post-list">
+  <app-post 
+    *ngFor="let post of posts" 
+    [post]="post"
+    (click)="selectPost(post)"
+    (dblclick)="editPost(post)">
+  </app-post>
+</div>
+<div *ngIf="selectedPost">
+  <app-post-detail [post]="selectedPost"></app-post-detail>
+</div>
+<div *ngIf="editingPost">
+  <app-post-editor [post]="editingPost" (save)="savePost($event)"></app-post-editor>
+</div>
